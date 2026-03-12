@@ -1,4 +1,4 @@
-# True Weather 🌤️
+ # True Weather 🌤️
 
 My first weather app built as a 2nd-year CS student. Enter any city and get live weather data with icons!
 
