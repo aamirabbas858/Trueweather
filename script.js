@@ -120,30 +120,38 @@ function getLocationWeather() {
   );
 }
 
-window.addEventListener("load", autoDetectWeather);
+document.addEventListener("DOMContentLoaded", () => {
 
-function autoDetectWeather() {
   if (!navigator.geolocation) return;
 
-  resultEl.textContent = "Getting your local weather...";
+  resultEl.textContent = "Detecting your location...";
 
-  navigator.geolocation.getCurrentPosition((position) => {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
 
-    const url =
-      "https://api.openweathermap.org/data/2.5/weather?lat=" +
-      lat +
-      "&lon=" +
-      lon +
-      "&appid=" +
-      apiKey +
-      "&units=metric";
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
 
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        renderWeather(data);
-      });
-  });
-}
+      const url =
+        "https://api.openweathermap.org/data/2.5/weather?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&appid=" +
+        apiKey +
+        "&units=metric";
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          renderWeather(data);
+        });
+
+    },
+    () => {
+      resultEl.textContent = "";
+    }
+  );
+
+});
+
