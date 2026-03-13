@@ -1,0 +1,140 @@
+/* CSS Reset-ish */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #87CEEB, #4a90e2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main card */
+.container {
+  background-color: #ffffff;
+  width: min(90%, 380px);
+  padding: 24px 20px 18px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Typography */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* Input + button row */
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+input {
+  padding: 8px 10px;
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
+}
+
+/* Button */
+button {
+  padding: 8px 14px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* Error text */
+.error {
+  color: #e74c3c;
+  min-height: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+/* Result card */
+.card {
+  margin-top: 4px;
+  padding: 14px 10px;
+  background-color: #f5f8ff;
+  border-radius: 12px;
+  min-height: 50px;
+  font-size: 0.95rem;
+}
+
+/* Weather details inside card */
+.weather-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.weather-line {
+  margin: 2px 0;
+}
+
+/* Footer */
+.footer {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: #777;
+}
+.weather-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin: 0 auto 12px auto;  /* ← Changed this */
+  display: block;
+}
+.result-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.weather-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  display: none;
+}
+
+
