@@ -12,7 +12,9 @@ const iconEl = document.getElementById("weatherIcon");
 
 // Click button
 button.addEventListener("click", showCity);
-locationBtn.addEventListener("click", getLocationWeather);
+if (locationBtn) {
+  locationBtn.addEventListener("click", getLocationWeather);
+}
 
 // Press Enter inside input
 cityInput.addEventListener("keydown", (event) => {
