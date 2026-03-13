@@ -8,7 +8,7 @@
 /* Layout */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #87CEEB, #4a90e2);
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -17,11 +17,12 @@ body {
 
 /* Main card */
 .container {
-  background-color: #ffffff;
-  width: min(90%, 380px);
-  padding: 24px 20px 18px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  width: min(90%, 400px);
+  padding: 28px 22px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   text-align: center;
 }
 
@@ -45,10 +46,11 @@ h1 {
 }
 
 input {
-  padding: 8px 10px;
+  padding: 10px 12px;
   flex: 1;
-  border-radius: 8px;
-  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  border: none;
+  background: #f0f4ff;
   font-size: 0.95rem;
 }
 
@@ -60,20 +62,19 @@ input:focus {
 
 /* Button */
 button {
-  padding: 8px 14px;
-  background-color: #3498db;
-  color: #ffffff;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover {
-  background-color: #2980b9;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 button:active {
@@ -130,11 +131,8 @@ button:active {
 }
 
 .weather-icon {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  margin-bottom: 12px;
-  display: none;
+  width: 90px;
+  height: 90px;
 }
 
 /* Weather backgrounds */
@@ -174,20 +172,19 @@ button:active {
 
 /* Forecast cards */
 
-.forecast {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  gap: 8px;
-}
-
 .forecast-card {
-  background: #f5f8ff;
-  padding: 8px;
-  border-radius: 10px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  padding: 10px;
+  border-radius: 12px;
   text-align: center;
   flex: 1;
   font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-3px);
 }
 
 .forecast-card img {
