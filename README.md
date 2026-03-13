@@ -3,7 +3,7 @@
 My first weather app built as a 2nd-year CS student. Enter any city and get live weather data with icons!
 
 ## Live Demo
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?logo=github)](https://abbasaamir858.github.io/trueweather/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?logo=github)](https://aamirabbas858.github.io/trueweather/)
 
 
 
