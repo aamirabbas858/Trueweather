@@ -9,7 +9,7 @@ const errorEl = document.getElementById("error");
 const button = document.getElementById("checkBtn");
 const locationBtn = document.getElementById("locationBtn");
 const iconEl = document.getElementById("weatherIcon");
-
+const loader = document.getElementById("loader");
 // Click button
 button.addEventListener("click", showCity);
 if (locationBtn) {
@@ -43,7 +43,8 @@ function showCity() {
     apiKey +
     "&units=metric";
 
-  resultEl.textContent = "Loading weather data...";
+ loader.style.display = "block";
+resultEl.textContent = "";
 
   fetch(url)
     .then((response) => {
@@ -62,9 +63,25 @@ function showCity() {
 }
 
 function renderWeather(data) {
+
+  loader.style.display = "none";
+  
   const temp = Math.round(data.main.temp);
   const feelsLike = Math.round(data.main.feels_like);
   const description = data.weather[0].description;
+  const weatherMain = data.weather[0].main.toLowerCase();
+
+document.body.className = "";
+
+if (weatherMain.includes("clear")) {
+  document.body.classList.add("sunny");
+} else if (weatherMain.includes("cloud")) {
+  document.body.classList.add("cloudy");
+} else if (weatherMain.includes("rain")) {
+  document.body.classList.add("rainy");
+} else if (weatherMain.includes("snow")) {
+  document.body.classList.add("snowy");
+}
   const cityName = data.name;
   const country = data.sys.country;
   const humidity = data.main.humidity;
