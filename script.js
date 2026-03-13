@@ -5,6 +5,7 @@ const apiKey = "e821d00b20b175bf12b854969e11e964";
 
 const cityInput = document.getElementById("cityInput");
 const resultEl = document.getElementById("result");
+const forecastEl = document.getElementById("forecast");
 const errorEl = document.getElementById("error");
 const button = document.getElementById("checkBtn");
 const locationBtn = document.getElementById("locationBtn");
@@ -65,7 +66,7 @@ resultEl.textContent = "";
 function renderWeather(data) {
 
   loader.style.display = "none";
-  
+
   const temp = Math.round(data.main.temp);
   const feelsLike = Math.round(data.main.feels_like);
   const description = data.weather[0].description;
@@ -99,6 +100,7 @@ if (weatherMain.includes("clear")) {
     <div class="weather-line">Weather: ${description}</div>
     <div class="weather-line">Humidity: ${humidity}%</div>
   `;
+  loadForecast(data.coord.lat, data.coord.lon);
 }
 
 function getLocationWeather() {
@@ -174,3 +176,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+function loadForecast(lat, lon) {
+
+  const url =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=" +
+    apiKey +
+    "&units=metric";
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+
+      forecastEl.innerHTML = "";
+
+      const daily = data.list.filter(item => item.dt_txt.includes("12:00:00"));
+
+      daily.slice(0, 5).forEach(day => {
+
+        const date = new Date(day.dt_txt);
+        const dayName = date.toLocaleDateString("en-US", { weekday: "short" });
+
+        const temp = Math.round(day.main.temp);
+        const icon = day.weather[0].icon;
+
+        const card = `
+          <div class="forecast-card">
+            <div>${dayName}</div>
+            <img src="https://openweathermap.org/img/wn/${icon}.png">
+            <div>${temp}°C</div>
+          </div>
+        `;
+
+        forecastEl.innerHTML += card;
+
+      });
+
+    });
+
+}

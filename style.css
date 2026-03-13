@@ -171,3 +171,25 @@ button:active {
     transform: rotate(360deg);
   }
 }
+
+/* Forecast cards */
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.forecast-card {
+  background: #f5f8ff;
+  padding: 8px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  font-size: 0.85rem;
+}
+
+.forecast-card img {
+  width: 40px;
+}
